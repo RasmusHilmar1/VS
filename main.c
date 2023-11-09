@@ -3,8 +3,9 @@
 //
 #include "stdio.h"
 
-int main(){
+int main() {
 
 
     printf("Gangster");
+
 }
