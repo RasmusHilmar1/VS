@@ -6,4 +6,8 @@ set(CMAKE_C_STANDARD 11)
 add_executable(VS
         main.c
         cpr.h
-        cpr.c)
+        cpr.c
+        cJSON.h
+        cJSON.c
+        "patient information.h"
+        "patient information.c")
