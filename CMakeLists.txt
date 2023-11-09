@@ -7,7 +7,4 @@ add_executable(VS
         main.c
         cpr.h
         cpr.c
-        cJSON.h
-        cJSON.c
-        "patient information.h"
-        "patient information.c")
+        )
