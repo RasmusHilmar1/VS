@@ -10,4 +10,8 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 .idea
-cmake-build-debug
+build.ninja
+.ninja_log
+.ninja_deps
+.cmake
+VS
