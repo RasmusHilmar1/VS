@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cJSON.h"
-#include "Enter CPR .h"
 
 // A function (int Enter_CPR()) to type in a CPR number and check if it is in the database
 // Make variabels?

@@ -7,4 +7,7 @@ add_executable(VS
         main.c
         cpr.h
         cpr.c
-        )
+        login.c
+        "patient information.c"
+        cJSON.c
+)
