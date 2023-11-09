@@ -10,4 +10,5 @@ add_executable(VS
         login.c
         "patient information.c"
         cJSON.c
+        dosage.c
 )
