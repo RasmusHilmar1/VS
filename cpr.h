@@ -1,8 +1,9 @@
-//
-// Created by Rasmus Hilmar on 09/11/2023.
-//
 
-#ifndef VS_CPR_H
-#define VS_CPR_H
+#ifndef MEDCINE_CPR_NUMBER_H
+#define MEDCINE_CPR_NUMBER_H
 
-#endif //VS_CPR_H
+int EnterCPR();
+
+#endif //MEDCINE_CPR_NUMBER_H
+
+
