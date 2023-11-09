@@ -5,7 +5,6 @@
 
 int main() {
 
-
     printf("Gangster");
     printf("wow");
 
