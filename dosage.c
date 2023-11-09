@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "dosagecalc.h"
+#include "dosage.h"
 #include "cJSON.h"
 
 double dosage(){
