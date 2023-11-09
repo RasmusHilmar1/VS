@@ -9,8 +9,8 @@ add_executable(VS
         cpr.c
         login.c
         login.h
-        patient information.c
-        patient information.h
+        "patient information.c"
+        "patient information.h"
         cJSON.c
         cJSON.h
         dosage.c
