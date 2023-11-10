@@ -15,4 +15,5 @@ add_executable(VS
         cJSON.h
         dosage.c
         dosage.h
+        encryption.c
 )
