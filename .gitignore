@@ -17,3 +17,4 @@ build.ninja
 VS
 main
 .DS_store
+cmake-build-debug/VS.cbp
