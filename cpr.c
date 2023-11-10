@@ -11,7 +11,7 @@
 
 // If the CPR number is in the database, then the code for patient information is to run
 // Else print "invalid patient" and back to "Enter CPR number"
-
+/*
 int EnterCPR() {
     FILE *fileptr;
 
@@ -22,4 +22,4 @@ int EnterCPR() {
     //open json file
     fileptr = fopen(//json document location,---);
 
-}
+} */

@@ -1,11 +1,11 @@
-//
-// Created by Rasmus Hilmar on 09/11/2023.
-//
 #include "stdio.h"
+#include "login.h"
+#include "patient information.h"
 
 int main() {
-
-    printf("Gangster");
-    printf("wow");
-
+    // Take CPR input and print info from user.pass
+    char cpr[12];
+    printf("Input CPR\n>");
+    scanf("%s", cpr);
+    print_patient(cpr);
 }
