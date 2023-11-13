@@ -1,4 +1,5 @@
 #include "patient information.h"
+#include "login.h"
 
 void print_patient(const char *cpr_to_find) {
     // This code attempts to open the file "users.json" for reading.
@@ -77,6 +78,27 @@ void print_patient(const char *cpr_to_find) {
     } else {
         //Hvis der ikke er en "Users" i JSON filen printer den det her.
         printf("Error: 'Users' is not an array in the JSON.\n");
+    }
+
+    // Kode som spørger om man vil finde en ny person på CPR nummer.
+    printf("Do you want to find a new person or log out?\nType 'Y' for yes or 'N' for log out\n>");
+    char valg;
+    scanf(" %c", &valg);
+    char CPRnr[11];
+
+    //Switch case på valg fra tidligere. Hvis Y spørger den om CPR, ellers N.
+    switch(valg) {
+        case 'Y':
+            printf("Please enter patients CPR-number:\n>");
+            scanf("%s", CPRnr);
+            print_patient(CPRnr);
+            break;
+        case 'N':
+            printf("Du bliver nu logget ud \n");
+            login();
+            break;
+        default:
+            printf("Du har hverken valgt ja eller nej");
     }
 
     // Delete the JSON object
