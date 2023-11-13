@@ -95,6 +95,7 @@ void print_patient(const char *cpr_to_find) {
             break;
         case 'N':
             printf("Du bliver nu logget ud \n");
+            //returnerer til login screen.
             login();
             break;
         default:
