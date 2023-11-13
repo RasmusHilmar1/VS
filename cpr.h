@@ -2,7 +2,7 @@
 #ifndef MEDCINE_CPR_NUMBER_H
 #define MEDCINE_CPR_NUMBER_H
 
-int EnterCPR();
+char EnterCPR();
 
 #endif //MEDCINE_CPR_NUMBER_H
 

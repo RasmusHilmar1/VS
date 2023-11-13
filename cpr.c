@@ -1,25 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "cJSON.h"
+#include <ctype.h>
+#include <stdbool.h>
+#include "patient information.h"
 
-// A function (int Enter_CPR()) to type in a CPR number and check if it is in the database
-// Make variabels?
+ char EnterCPR() {
+    char CPRnr[11];  // Make room for 10 digits and the null terminator
 
-//  It needs to check if the CPR number is in the database
-// Needs an if/else
-
-// If the CPR number is in the database, then the code for patient information is to run
-// Else print "invalid patient" and back to "Enter CPR number"
-/*
-int EnterCPR() {
-    FILE *fileptr;
-
-    //input and scan for CPR-number
+    // Input and scan for CPR-number
     printf("Please enter patients CPR-number:\n>");
-    scanf("" CPRnr);
+    scanf("%s", CPRnr);
 
-    //open json file
-    fileptr = fopen(//json document location,---);
+    // Check if the input matches what a CPR number would be
+    int CPRnrInputLength = strlen(CPRnr);
+    bool IsDigit = true;
 
-} */
+    for (int i = 0; i < CPRnrInputLength; i++) {
+        if (!isdigit(CPRnr[i])) {
+            IsDigit = false;
+            break;
+        }
+    }
+
+    if (!(IsDigit == true && CPRnrInputLength == 10)) {
+        printf("Invalid CPR-number\n");
+        return EnterCPR();  // Re-enter CPR number
+    }
+
+    print_patient(CPRnr);
+}
