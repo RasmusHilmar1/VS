@@ -7,7 +7,7 @@ void print_patient(const char *cpr_to_find) {
     if (fp == NULL) {
         printf("Error: Unable to open the file.\n");
         return;
-    }
+    } 
 
     // This code reads the contents of the opened file into a character buffer named buffer.
     char buffer[1024];
