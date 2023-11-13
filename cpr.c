@@ -3,8 +3,9 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
+#include "patient information.h"
 
-int EnterCPR() {
+ char EnterCPR() {
     char CPRnr[11];  // Make room for 10 digits and the null terminator
 
     // Input and scan for CPR-number
@@ -27,5 +28,5 @@ int EnterCPR() {
         return EnterCPR();  // Re-enter CPR number
     }
 
-    return CPRnr;  // return CPRnr
+    print_patient(CPRnr);
 }
