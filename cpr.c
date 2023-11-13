@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include "patient information.h"
 
- char EnterCPR() {
+char EnterCPR() {
     char CPRnr[11];  // Make room for 10 digits and the null terminator
 
     // Input and scan for CPR-number
