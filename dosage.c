@@ -3,23 +3,29 @@
 #include <stdio.h>
 #include "dosage.h"
 
+// Function to calculate the dosage of a medicine
 double liquidDosage(){
     double liquidDose, *dosage = NULL, concentration, patientWeight, maxDosage;
     int unitChoice, unitChoice2, unitChoice3;
+    // allocate memory for dosage
     dosage = (double*)malloc(sizeof(double));
 
+    // Takes input choice 1/2 for to choose either weight based dosage or liquid dosage
     printf("Press 1 for dosage by weight calculator, press 2 for liquid dosage calculator.\n>");
     scanf("%d", &unitChoice2);
 
+    // Take input for liquid dosage. (dosage is a pointer so equal through the whole function)
     if (unitChoice2 == 2){
         printf("Select the unit of measurement for the liquid dosage.\n");
         printf("1 for ml/L 2 for mg/L, 3 for mcg/L.\n>");
         scanf("%d", &unitChoice);
         printf("Enter the medicine concentration.\n>");
         scanf("%lf", &concentration);
+        // Dosage here is a pointer
         printf("Enter the dosage.\n>");
         scanf("%lf", dosage);
 
+        // Calculate dosage and print based on selection
         if (unitChoice == 1){
             liquidDose = *dosage / concentration;
             printf("The liquid dosage is: %.2lf ml.\n", liquidDose);
@@ -31,6 +37,7 @@ double liquidDosage(){
             printf("The liquid dosage is: %.2lf ml.\n", liquidDose);
         }
 
+        // Take input for weight based dosage
     } else if (unitChoice2 == 1){
         printf("Enter the patient's weight in kilograms\n>");
         scanf("%lf", &patientWeight);
@@ -41,6 +48,7 @@ double liquidDosage(){
         printf("Enter the maximum allowable dosage\n>");
         scanf("%lf", &maxDosage);
 
+        // Checks if dosage is too high
         if (*dosage < maxDosage) {
             if (unitChoice3 == 1) { // g
                 *dosage *= patientWeight;
@@ -56,6 +64,7 @@ double liquidDosage(){
             printf("The dosage is too high, please try again.\n");
         }
     }
+    // free allocated dosage memory
     free(dosage);
     return 0;
 }
