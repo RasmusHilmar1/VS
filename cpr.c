@@ -27,5 +27,5 @@ int EnterCPR() {
         return EnterCPR();  // Re-enter CPR number
     }
 
-    return CPRnr;  // Convert CPR number to integer and return
+    return CPRnr;  // return CPRnr
 }
