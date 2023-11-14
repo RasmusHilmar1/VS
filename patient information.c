@@ -12,7 +12,7 @@ void print_patient(const char *cpr_to_find) {
     }
 
     // This code reads the contents of the opened file into a character buffer named buffer.
-    char buffer[1024];
+    char buffer[2048];
     int len = fread(buffer, 1, sizeof(buffer), fp);
     fclose(fp);
 
@@ -42,6 +42,7 @@ void print_patient(const char *cpr_to_find) {
                 cJSON *gender = cJSON_GetObjectItemCaseSensitive(patient, "Gender");
                 cJSON *diagnosis1 = cJSON_GetObjectItemCaseSensitive(patient, "Diagnosis1");
                 cJSON *medicine1 = cJSON_GetObjectItemCaseSensitive(patient, "Medicine1");
+                cJSON *dosage1 = cJSON_GetObjectItemCaseSensitive(patient, "Dosage1");
                 cJSON *diagnosis2 = cJSON_GetObjectItemCaseSensitive(patient, "Diagnosis2");
                 cJSON *medicine2 = cJSON_GetObjectItemCaseSensitive(patient, "Medicine2");
 
@@ -65,6 +66,10 @@ void print_patient(const char *cpr_to_find) {
                     printf("Medicine1: %s\n", medicine1->valuestring);
                 }
 
+                if (cJSON_IsString(dosage1) && (dosage1->valuestring != NULL)) {
+                    printf("Dosage1: %s\n", dosage1->valuestring);
+                }
+
                 if (cJSON_IsString(diagnosis2) && (diagnosis2->valuestring != NULL)) {
                     printf("Diagnosis2: %s\n", diagnosis2->valuestring);
                 }
@@ -81,25 +86,28 @@ void print_patient(const char *cpr_to_find) {
         printf("Error: 'Users' is not an array in the JSON.\n");
     }
 
-    // Kode som spørger om man vil finde en ny person på CPR nummer.
-    printf("Do you want to find a new person or log out?\nType 'Y' for yes or 'N' for log out\n>");
     char valg;
-    scanf(" %c", &valg);
-    char CPRnr[11];
+    printf("Do you want to find a new person or log out?\nType 'Y' for yes or 'N' for log out\n>");
 
-    //Switch case på valg fra tidligere. Hvis Y spørger den om CPR, ellers N.
-    switch(valg) {
-        case 'Y':
-            EnterCPR(CPRnr);
-            break;
-        case 'N':
-            printf("Du bliver nu logget ud \n");
-            //returnerer til login screen.
-            login();
-            break;
-        default:
-            printf("Du har hverken valgt ja eller nej");
-    }
+    do {
+        //Kode som tjekker om valg er Y eller N og derefter kører switch casen.
+        scanf(" %c", &valg);
+        char CPRnr[11];
+
+        //Switch case på valg fra tidligere. Hvis Y spørger den om CPR, ellers N.
+        switch(valg) {
+            case 'Y':
+                EnterCPR(CPRnr);
+                break;
+            case 'N':
+                printf("Du bliver nu logget ud \n");
+                login();
+                break;
+            default:
+                printf("Du har hverken valgt ja eller nej. Prøv igen, men vælg 'Y' eller 'N'.\n");
+        }
+    } while(valg != 'Y' && valg != 'N');
+
 
     // Delete the JSON object
     cJSON_Delete(json);
