@@ -48,6 +48,10 @@ double liquidDosage(){
         printf("Enter the maximum allowable dosage\n>");
         scanf("%lf", &maxDosage);
 
+        while (*dosage > maxDosage) {
+            printf("The dosage is too high, please enter a new dosage.\n>");
+            scanf("%lf", dosage);
+        }
         // Checks if dosage is too high
         if (*dosage < maxDosage) {
             if (unitChoice3 == 1) { // g
@@ -60,8 +64,6 @@ double liquidDosage(){
                 *dosage *= patientWeight * 1000000;
                 printf("The calculated dosage is: %.2lf mcg.\n", *dosage);
             }
-        } else if (*dosage > maxDosage) {
-            printf("The dosage is too high, please try again.\n");
         }
     }
     // free allocated dosage memory
