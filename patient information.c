@@ -1,5 +1,6 @@
 #include "patient information.h"
 #include "login.h"
+#include "cpr.h"
 
 void print_patient(const char *cpr_to_find) {
     // This code attempts to open the file "users.json" for reading.
@@ -89,9 +90,7 @@ void print_patient(const char *cpr_to_find) {
     //Switch case på valg fra tidligere. Hvis Y spørger den om CPR, ellers N.
     switch(valg) {
         case 'Y':
-            printf("Please enter patients CPR-number:\n>");
-            scanf("%s", CPRnr);
-            print_patient(CPRnr);
+            EnterCPR(CPRnr);
             break;
         case 'N':
             printf("Du bliver nu logget ud \n");

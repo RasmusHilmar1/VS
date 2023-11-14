@@ -1,4 +1,4 @@
-#include "cpr.h."
+#include "cpr.h"
 #include "patient information.h"
 
 char EnterCPR() {
