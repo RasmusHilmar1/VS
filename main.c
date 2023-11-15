@@ -5,8 +5,9 @@
 #include "cpr.h"
 
 int main() {
-    // Take CPR input and print info from user.pass
-    EnterCPR();
-
-    liquidDosage();
+    if (login() == 1) {
+        EnterCPR();
+        liquidDosage();
+    }
+    return 0;
 }
