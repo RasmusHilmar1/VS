@@ -81,6 +81,8 @@ void print_patient(const char *cpr_to_find) {
 
                 break;  // Exit the loop once the desired "CPR" is found
             }
+            //If the loop has not been broken that means that the CPR number is not in the json file
+            // so we can insert an error message and run EnterCPR again
             printf("Invalid CPR-number\n");
             EnterCPR();
         }
