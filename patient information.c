@@ -37,7 +37,7 @@ void print_patient(const char *cpr_to_find) {
 
 
             //atoi funktionen converter vores array of chars (String) til en int
-            if (cJSON_IsNumber(cpr) && (cpr->valueint == atoi(cpr_to_find))) {
+            if (cJSON_IsNumber(cpr) && (cpr->valueint == atof(cpr_to_find))) {
                 cJSON *name = cJSON_GetObjectItemCaseSensitive(patient, "Name");
                 cJSON *age = cJSON_GetObjectItemCaseSensitive(patient, "Age");
                 cJSON *gender = cJSON_GetObjectItemCaseSensitive(patient, "Gender");
@@ -83,8 +83,12 @@ void print_patient(const char *cpr_to_find) {
             }
             //If the loop has not been broken that means that the CPR number is not in the json file
             // so we can insert an error message and run EnterCPR again
+
+            /*
+             * Dette virker ikke.
             printf("Invalid CPR-number\n");
             EnterCPR();
+            */
         }
     } else {
         //Hvis der ikke er en "Users" i JSON filen printer den det her.
@@ -97,6 +101,7 @@ void print_patient(const char *cpr_to_find) {
     do {
         //Kode som tjekker om valg er Y eller N og derefter kører switch casen.
         scanf(" %c", &valg);
+        valg = toupper(valg);
         char CPRnr[11];
 
         //Switch case på valg fra tidligere. Hvis Y spørger den om CPR, ellers N.
@@ -112,7 +117,6 @@ void print_patient(const char *cpr_to_find) {
                 printf("Du har hverken valgt ja eller nej. Prøv igen, men vælg 'Y' eller 'N'.\n");
         }
     } while(valg != 'Y' && valg != 'N');
-
 
     // Delete the JSON object
     cJSON_Delete(json);
