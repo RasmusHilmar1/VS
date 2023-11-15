@@ -32,7 +32,7 @@ int login() {
         rewind(fileptr);
 
         // allocate memory for file content
-        buffer = (char *) malloc((filelen + 1) * sizeof(char));
+        buffer = (char *)malloc((filelen + 1) * sizeof(char));
         if (buffer == NULL) {
             perror("Error allocating memory for file content");
             fclose(fileptr);

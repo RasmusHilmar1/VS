@@ -4,7 +4,7 @@
 #include "dosage.h"
 
 // Function to calculate the dosage of a medicine
-double liquidDosage(){
+double dosageCalculator(){
     double liquidDose, *dosage = NULL, concentration, patientWeight, maxDosage;
     int unitChoice, unitChoice2, unitChoice3;
     // allocate memory for dosage
