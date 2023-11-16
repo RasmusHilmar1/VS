@@ -35,6 +35,7 @@ void print_patient(const char *cpr_to_find) {
             cJSON *patient = cJSON_GetArrayItem(users, i);
             cJSON *cpr = cJSON_GetObjectItemCaseSensitive(patient, "CPR");
 
+
             //atoi funktionen converter vores array of chars (String) til en int
             if (cJSON_IsNumber(cpr) && (cpr->valueint == atoi(cpr_to_find))) {
                 cJSON *name = cJSON_GetObjectItemCaseSensitive(patient, "Name");
@@ -75,6 +76,14 @@ void print_patient(const char *cpr_to_find) {
 
                 break;  // Exit the loop once the desired "CPR" is found
             }
+            //If the loop has not been broken that means that the CPR number is not in the json file
+            // so we can insert an error message and run EnterCPR again
+
+            /*
+             * Dette virker ikke.
+            printf("Invalid CPR-number\n");
+            EnterCPR();
+            */
         }
     } else {
         //Hvis der ikke er en "Users" i JSON filen printer den det her.
