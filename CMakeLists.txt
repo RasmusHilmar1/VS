@@ -16,4 +16,6 @@ add_executable(VS
         dosage.c
         dosage.h
         encryption.c
+        timestamp.c
+        timestamp.h
 )

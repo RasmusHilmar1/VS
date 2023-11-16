@@ -4,9 +4,8 @@
 #include "cpr.h"
 
 int main() {
-    if (login() == 1) {
-        EnterCPR();
-        dosageCalculator();
-    }
+    login();
+    EnterCPR();
+
     return 0;
 }

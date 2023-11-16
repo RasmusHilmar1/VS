@@ -1,10 +1,10 @@
 #include "patient information.h"
 #include "login.h"
 #include "cpr.h"
+#include "timestamp.h"
 
 void print_patient(const char *cpr_to_find) {
     // This code attempts to open the file "users.json" for reading.
-    // If it fails to open the file (e.g., due to a file not found), it prints an error message and returns from the function.
     FILE *fp = fopen("users.json", "r");
     if (fp == NULL) {
         printf("Error: Unable to open the file.\n");
@@ -34,7 +34,6 @@ void print_patient(const char *cpr_to_find) {
         for (int i = 0; i < cJSON_GetArraySize(users); i++) {
             cJSON *patient = cJSON_GetArrayItem(users, i);
             cJSON *cpr = cJSON_GetObjectItemCaseSensitive(patient, "CPR");
-
 
             //atoi funktionen converter vores array of chars (String) til en int
             if (cJSON_IsNumber(cpr) && (cpr->valueint == atof(cpr_to_find))) {
@@ -79,19 +78,36 @@ void print_patient(const char *cpr_to_find) {
                     printf("Medicine2: %s\n", medicine2->valuestring);
                 }
 
-                break;  // Exit the loop once the desired "CPR" is found
-            }
-            //If the loop has not been broken that means that the CPR number is not in the json file
-            // so we can insert an error message and run EnterCPR again
+                // Ask if the user wants to add a timestamp
+                char timestampChoice;
+                printf("Do you want to add a timestamp? (Y/N): ");
+                scanf(" %c", &timestampChoice);
+                timestampChoice = toupper(timestampChoice);
 
-            /*
-             * Dette virker ikke.
-            printf("Invalid CPR-number\n");
-            EnterCPR();
-            */
+                if (timestampChoice == 'Y') {
+                    // Add a timestamp to the patient's information
+                    timestamp(patient);
+
+                    // Convert the updated JSON object to a formatted string
+                    char *updatedJsonString = cJSON_Print(json);
+
+                    // Write the updated JSON string back to the file
+                    FILE *updateFile = fopen("users.json", "w");
+                    if (updateFile != NULL) {
+                        fprintf(updateFile, "%s\n", updatedJsonString);
+                        fclose(updateFile);
+                    } else {
+                        printf("Error: Unable to open the file for writing.\n");
+                    }
+
+                    // Free the cJSON objects and the JSON strings
+                    cJSON_Delete(json);
+                    free(updatedJsonString);
+                }
+                break;
+            }
         }
     } else {
-        //Hvis der ikke er en "Users" i JSON filen printer den det her.
         printf("Error: 'Users' is not an array in the JSON.\n");
     }
 
