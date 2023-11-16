@@ -21,19 +21,18 @@
    "Medicine2": "??"
   },
   {
-   "Name": "Lasse Binderup Sørensen",
+   "Name": "Lasse Binderup Soerensen",
    "Age": 24,
    "Gender": "Male",
    "CPR": 304991234,
    "Diagnosis1": "Høfeber",
-   "Medicine1": "Opatanol",
-   "Dosage1": "1 drop in each eye, morning and night",
+   "Medicine1": "Høfeber",
    "Diagnosis2": "Eksem",
    "Medicine2": "??",
    "Test": "Test"
   },
   {
-   "Name": "Jakob Strøm",
+   "Name": "Jakob Stroem",
    "Age": 20,
    "Gender": "Sigma",
    "CPR": 1311991234,

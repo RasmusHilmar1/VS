@@ -76,7 +76,6 @@ int login() {
                         if (strcmp(password, json_password->valuestring) == 0) {
                             printf("Login successful.\n\n");
                             logintrack = 1;
-                            return 1;
                         } else {
                             printf("Password incorrect.\n");
                         }
